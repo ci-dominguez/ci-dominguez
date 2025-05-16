@@ -1,5 +1,5 @@
 ### Hi there ~ <br>
 
-<img src="https://user-images.githubusercontent.com/1303154/88677602-1635ba80-d120-11ea-84d8-d263ba5fc3c0.gif" alt="Surfing pikachu">
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExanRuZG13bWhxcGowMGF5dWdraWdrYWl3b295NnNlYjBvMndkbmZ6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6vEi7p81nYYcU/giphy.gif" alt="Surfing pikachu">
 
 ![Top Langs](https://stats.cidominguez.com/api/top-langs/?username=ci-dominguez&count_private=true&layout=compact&hide=css,html)
