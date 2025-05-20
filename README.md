@@ -7,7 +7,7 @@
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExanRuZG13bWhxcGowMGF5dWdraWdrYWl3b295NnNlYjBvMndkbmZ6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6vEi7p81nYYcU/giphy.gif" width="480px" alt="Surfing pikachu">
 
 #### Languages
-![Top Langs](https://stats.cidominguez.com/api/top-langs/?username=ci-dominguez&count_private=true&layout=compact&hide=css,html)
+![Top Langs](https://stats.cidominguez.com/api/top-langs/?username=cdom27&count_private=true&layout=compact&hide=css,html)
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](#)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
