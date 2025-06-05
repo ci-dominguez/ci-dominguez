@@ -3,9 +3,8 @@ import { AWOTD } from '../lib/awotd';
 import { EXP } from '../lib/experience';
 import { PERSONAL_WORK } from '../lib/personal-work';
 import { PROJECTS } from '../lib/projects';
+import { ArrowSquareOutIcon, SunHorizonIcon } from '@phosphor-icons/react';
 import Me from '../assets/me.png';
-import Sun from '../assets/sun.svg';
-import ExternalLink from '../assets/link.svg';
 
 const Landing = () => {
   return (
@@ -21,9 +20,9 @@ const Landing = () => {
             </h1>
           </div>
 
-          <p className='text-text-white/40 text-xl mx-auto flex gap-2'>
+          <p className='text-text-white/40 text-xl mx-auto flex gap-2 items-center'>
             <span>Based in San Diego, CA</span>
-            <img src={Sun} alt='Sunrise' className='w-6' />
+            <SunHorizonIcon className='size-6' />
           </p>
         </div>
 
@@ -119,12 +118,7 @@ const Landing = () => {
                     className='hover:underline flex items-center gap-2'
                   >
                     <span>Visit</span>
-                    <img
-                      src={ExternalLink}
-                      alt=''
-                      aria-hidden='true'
-                      className='w-4'
-                    />
+                    <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
                   </a>
                 )}
                 <a
@@ -134,12 +128,7 @@ const Landing = () => {
                   className='hover:underline flex items-center gap-2'
                 >
                   <span>View Code</span>
-                  <img
-                    src={ExternalLink}
-                    alt=''
-                    aria-hidden='true'
-                    className='w-4'
-                  />
+                  <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
                 </a>
               </div>
             </article>
@@ -160,12 +149,7 @@ const Landing = () => {
                   className='hover:underline flex items-center gap-2 text-xl'
                 >
                   <span>{p.title}</span>
-                  <img
-                    src={ExternalLink}
-                    alt=''
-                    aria-hidden='true'
-                    className='w-4'
-                  />
+                  <ArrowSquareOutIcon className='min-w-4 size-4 stroke-bg-dark' />
                 </a>
               </div>
 
