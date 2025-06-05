@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
 
 :root {
   background: var(--color-bg-light);
@@ -15,5 +15,7 @@
   --color-btn-border: #302f2f;
   --color-link-active: #0000ee;
 
-  --font-family-sans: "Inter", sans-serif;
+  --font-family-sans: 'Inter', sans-serif;
+
+  --shadow-header: 0px 6px 20px rgba(0, 0, 0, 0.1);
 }
