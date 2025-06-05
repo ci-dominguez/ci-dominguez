@@ -1,23 +1,104 @@
+import { useState } from 'react';
 import { Link } from 'react-router';
-import Logo from '../../assets/logo.svg';
-import ExternalLink from '../../assets/link.svg';
+import LinkButton from '../ui/link-button/link-button';
 import { SOCIALS } from '../../lib/social-links';
+import { LINKS, NAV_SOCIALS } from '../../lib/nav-links';
+import Logo from '../ui/icons/logo';
+import { ListIcon, XIcon, ArrowSquareOutIcon } from '@phosphor-icons/react';
 
 interface SiteLayoutProps {
   children: React.ReactNode;
 }
 
 const SiteLayout = ({ children }: SiteLayoutProps) => {
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <>
-      {/* <header className='px-4 py-4'>
-        <nav>Start</nav>
-      </header> */}
+      <header className='fixed inset-0 z-40'>
+        <div className='bg-btn-bg/70 backdrop-blur-[100px] shadow-header rounded-xl fixed inset-x-4 top-4 z-50 py-3 px-5 flex items-center justify-between'>
+          <Link to='/' className='flex items-center gap-2'>
+            <Logo className='size-6 fill-bg-light' />
+            <span className='font-semibold text-bg-light'>
+              Cristian Dominguez
+            </span>
+          </Link>
+
+          <button
+            className='bg-btn-bg border-btn-border p-1 rounded-sm cursor-pointer'
+            onClick={() => setOpenMenu(!openMenu)}
+          >
+            {openMenu ? (
+              <XIcon className='size-6 fill-bg-light' />
+            ) : (
+              <ListIcon className='size-6 fill-bg-light' />
+            )}
+          </button>
+        </div>
+
+        {openMenu && (
+          <div className='relative h-screen w-full'>
+            <div className='absolute inset-0 bg-[conic-gradient(from_162.29deg_at_50%_50%,#bba67e_0deg,#000000_83.08deg,#2b261d_257.88deg,#5e5440_299.42deg,#bba67e_360deg)]' />
+            <div className='absolute inset-0 backdrop-blur-[100px] bg-bg-light/10' />
+            <div className='absolute inset-x-4 top-32 flex flex-col z-10 gap-12 text-bg-light'>
+              <div className='flex flex-col gap-2'>
+                <h2 className='text-lg text-bg-light'>Navigate</h2>
+                <nav className='flex flex-wrap gap-2'>
+                  {LINKS.map((link, index) => {
+                    return (
+                      <LinkButton
+                        key={index}
+                        to={link.href}
+                        type='internal'
+                        variant='default'
+                      >
+                        <div className='bg-btn-bg border-btn-border rounded-sm p-1'>
+                          {link.icon}
+                        </div>
+                        <span>{link.text}</span>
+                      </LinkButton>
+                    );
+                  })}
+                </nav>
+              </div>
+
+              <div className='flex flex-col gap-2'>
+                <h2 className='text-lg text-bg-light'>Connect</h2>
+                <ul className='flex flex-wrap gap-2'>
+                  {NAV_SOCIALS.map((s, index) => {
+                    return (
+                      <li key={index}>
+                        <LinkButton
+                          to={s.href}
+                          type='external'
+                          variant='default'
+                        >
+                          <span>{s.text}</span>
+                          <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
+                        </LinkButton>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <p className='lg:hidden'>
+                Cursor options are disabled on mobile devices.
+              </p>
+
+              {/* TODO - Create cursor options for desktop */}
+              <div className='hidden lg:flex'>
+                <span>cursor options will go here</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
       <main className='min-h-screen scroll-smooth'>{children}</main>
 
       <footer className='px-4 pb-28'>
         <Link to='/' className='flex items-center gap-2'>
-          <img src={Logo} alt='Logo' className='size-6' />
+          <Logo className='size-6 fill-btn-bg' />
           <span className='font-semibold'>Cristian Dominguez</span>
         </Link>
 
@@ -36,12 +117,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     className='flex items-center gap-2 hover:underline'
                   >
                     <span>{s.text}</span>
-                    <img
-                      src={ExternalLink}
-                      alt=''
-                      aria-hidden='true'
-                      className='w-4'
-                    />
+                    <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
                   </a>
                 </li>
               );
