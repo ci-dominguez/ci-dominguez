@@ -17,4 +17,11 @@
   --font-family-sans: 'Inter', sans-serif;
 
   --shadow-header: 0px 6px 20px rgba(0, 0, 0, 0.1);
+
+  --breakpoint-*: initial;
+  --breakpoint-xs: 28rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
 }

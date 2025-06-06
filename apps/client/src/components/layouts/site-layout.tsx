@@ -14,7 +14,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <>
-      <header className='fixed inset-0 z-40'>
+      <header className='fixed z-40'>
         <div className='bg-btn-bg/70 backdrop-blur-[100px] shadow-header rounded-xl fixed inset-x-4 top-4 z-50 py-3 px-5 flex items-center justify-between'>
           <Link
             to='/'
@@ -42,7 +42,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
         </div>
 
         {openMenu && (
-          <div className='relative h-screen w-full'>
+          <div className='fixed inset-0 h-screen w-full'>
             <div className='absolute inset-0 bg-[conic-gradient(from_162.29deg_at_50%_50%,#bba67e_0deg,#000000_83.08deg,#2b261d_257.88deg,#5e5440_299.42deg,#bba67e_360deg)]' />
             <div className='absolute inset-0 backdrop-blur-[100px] bg-bg-light/10' />
             <div className='absolute inset-x-4 top-32 flex flex-col z-10 gap-12 text-bg-light'>
@@ -119,17 +119,19 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
 
       <main className='min-h-screen scroll-smooth'>{children}</main>
 
-      <footer className='px-4 pb-28'>
-        <Link to='/' className='flex items-center gap-2'>
+      <footer className='px-4 xs:px-10 lg:px-20 w-full max-w-[1365px] mx-auto pb-28 flex flex-col xl:flex-row xl:justify-between'>
+        <Link to='/' className='flex items-center gap-2 self-start'>
           <Logo className='size-6 fill-btn-bg' />
           <span className='font-semibold'>Cristian Dominguez</span>
         </Link>
 
-        <p className='mt-2.5'>I enjoy building things on the web.</p>
+        <p className='mt-2.5 xl:mt-0 self-start'>
+          I enjoy building things on the web.
+        </p>
 
-        <address className='flex flex-col gap-2 mt-8 not-italic'>
+        <address className='flex flex-col gap-2 mt-8 xl:mt-0 xl:flex-row xl:gap-4 not-italic self-start'>
           <h4 className='font-semibold'>Connect With Me</h4>
-          <ul className='flex flex-col gap-2'>
+          <ul className='flex flex-col gap-2 xl:flex-row xl:gap-4 '>
             {SOCIALS.map((s, index) => {
               return (
                 <li key={index} className='self-start'>
@@ -140,7 +142,10 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     className='flex items-center gap-2 hover:underline'
                   >
                     <span>{s.text}</span>
-                    <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
+                    <ArrowSquareOutIcon
+                      className='size-4 stroke-bg-dark'
+                      aria-hidden='true'
+                    />
                   </a>
                 </li>
               );
