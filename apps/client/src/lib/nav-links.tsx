@@ -4,17 +4,17 @@ export const LINKS = [
   {
     text: 'Programming',
     href: '/',
-    icon: <CodeIcon className='size-4 fill-bg-light' />,
+    icon: <CodeIcon className='size-4 fill-bg-light' aria-hidden='true' />,
   },
   {
     text: 'Me',
     href: '/about',
-    icon: <UserIcon className='size-4 fill-bg-light' />,
+    icon: <UserIcon className='size-4 fill-bg-light' aria-hidden='true' />,
   },
   {
     text: 'Resume',
     href: '/assets/cristian-dominguez-resume.pdf',
-    icon: <FileIcon className='size-4 fill-bg-light' />,
+    icon: <FileIcon className='size-4 fill-bg-light' aria-hidden='true' />,
   },
 ];
 

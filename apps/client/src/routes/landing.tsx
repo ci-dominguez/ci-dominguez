@@ -22,7 +22,7 @@ const Landing = () => {
 
           <p className='text-text-white/40 text-xl mx-auto flex gap-2 items-center'>
             <span>Based in San Diego, CA</span>
-            <SunHorizonIcon className='size-6' />
+            <SunHorizonIcon className='size-6' aria-hidden='true' />
           </p>
         </div>
 
@@ -35,9 +35,13 @@ const Landing = () => {
 
         {/* TODO - Use art api instead of local metadata */}
         <article>
-          <h3 className='pb-2'>Artwork of The Day</h3>
+          <h2 className='pb-2'>Artwork of The Day</h2>
           <figure>
-            <img src={AWOTD.image} alt={AWOTD.title} className='pb-2' />
+            <img
+              src={AWOTD.image}
+              alt={`Artwork titled ${AWOTD.title} by ${AWOTD.artist}`}
+              className='pb-2'
+            />
             <figcaption>
               {AWOTD.title}, {AWOTD.artist} ({AWOTD.referred_year})
             </figcaption>
@@ -63,7 +67,11 @@ const Landing = () => {
             return (
               <article key={exp.company}>
                 <div className='flex items-center gap-2'>
-                  <div className='bg-bg-dark min-w-4 size-4' />
+                  <div
+                    className='bg-bg-dark min-w-4 size-4'
+                    aria-hidden='true'
+                    role='presentation'
+                  />
                   <h4 className='text-xl font-medium'>{exp.company}</h4>
                 </div>
 
@@ -98,16 +106,16 @@ const Landing = () => {
 
               <p>{work.description}</p>
 
-              <div className='mt-2 flex flex-wrap gap-2'>
+              <ul className='mt-2 flex flex-wrap gap-2'>
                 {work.stack.map((tech) => (
-                  <span
+                  <li
                     key={tech}
                     className='bg-btn-bg border-btn-border text-text-white py-1 px-2.5 rounded-md text-sm'
                   >
                     {tech}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               <div className='flex gap-6 mt-2'>
                 {work.site_url && (
@@ -116,9 +124,13 @@ const Landing = () => {
                     target='_blank'
                     rel='noopener noreferrer'
                     className='hover:underline flex items-center gap-2'
+                    aria-label={`Visit live site for ${work.title}`}
                   >
                     <span>Visit</span>
-                    <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
+                    <ArrowSquareOutIcon
+                      className='size-4 stroke-bg-dark'
+                      aria-hidden='true'
+                    />
                   </a>
                 )}
                 <a
@@ -126,9 +138,13 @@ const Landing = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                   className='hover:underline flex items-center gap-2'
+                  aria-label={`View source code for ${work.title}`}
                 >
                   <span>View Code</span>
-                  <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
+                  <ArrowSquareOutIcon
+                    className='size-4 stroke-bg-dark'
+                    aria-hidden='true'
+                  />
                 </a>
               </div>
             </article>
@@ -141,30 +157,38 @@ const Landing = () => {
           {PROJECTS.map((p) => (
             <article key={p.title} className='flex flex-col gap-2'>
               <div className='flex items-center gap-2'>
-                <div className='bg-bg-dark min-w-4 size-4' />
+                <div
+                  className='bg-bg-dark min-w-4 size-4'
+                  aria-hidden='true'
+                  role='presentation'
+                />
                 <a
                   href={p.repo_url}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='hover:underline flex items-center gap-2 text-xl'
+                  aria-label={`View source code for ${p.title}`}
                 >
                   <span>{p.title}</span>
-                  <ArrowSquareOutIcon className='min-w-4 size-4 stroke-bg-dark' />
+                  <ArrowSquareOutIcon
+                    className='min-w-4 size-4 stroke-bg-dark'
+                    aria-hidden='true'
+                  />
                 </a>
               </div>
 
               <p className='pl-6'>{p.description}</p>
 
-              <div className='mt-2 flex flex-wrap gap-2 pl-6'>
+              <ul className='mt-2 flex flex-wrap gap-2 pl-6'>
                 {p.stack.map((tech) => (
-                  <span
+                  <li
                     key={tech}
                     className='bg-btn-bg border-btn-border text-text-white py-1 px-2.5 rounded-md text-sm'
                   >
                     {tech}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </article>
           ))}
         </section>

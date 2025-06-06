@@ -57,17 +57,18 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                   <ul className='flex flex-wrap gap-2'>
                     {LINKS.map((link, index) => {
                       return (
-                        <LinkButton
-                          key={index}
-                          to={link.href}
-                          type='internal'
-                          variant='default'
-                        >
-                          <div className='bg-btn-bg border-btn-border rounded-sm p-1'>
-                            {link.icon}
-                          </div>
-                          <span>{link.text}</span>
-                        </LinkButton>
+                        <li key={index}>
+                          <LinkButton
+                            to={link.href}
+                            type='internal'
+                            variant='default'
+                          >
+                            <div className='bg-btn-bg border-btn-border rounded-sm p-1'>
+                              {link.icon}
+                            </div>
+                            <span>{link.text}</span>
+                          </LinkButton>
+                        </li>
                       );
                     })}
                   </ul>
@@ -92,7 +93,10 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                         >
                           <span>{s.text}</span>
                           <span className='sr-only'>(opens in a new tab)</span>
-                          <ArrowSquareOutIcon className='size-4 stroke-bg-dark' />
+                          <ArrowSquareOutIcon
+                            className='size-4 stroke-bg-dark'
+                            aria-hidden='true'
+                          />
                         </LinkButton>
                       </li>
                     );
