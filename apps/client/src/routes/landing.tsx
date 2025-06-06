@@ -9,7 +9,7 @@ import Me from '../assets/me.png';
 const Landing = () => {
   return (
     <SiteLayout>
-      <section className='bg-bg-dark text-text-white flex flex-col px-4 py-28 gap-14'>
+      <section className='bg-bg-dark text-bg-light flex flex-col px-4 py-28 gap-14'>
         <div className='flex flex-col items-center gap-4'>
           <div className='flex gap-6'>
             <img src={Me} alt='Cristian Dominguez' className='w-22' />
@@ -20,7 +20,7 @@ const Landing = () => {
             </h1>
           </div>
 
-          <p className='text-text-white/40 text-xl mx-auto flex gap-2 items-center'>
+          <p className='text-bg-light/40 text-xl mx-auto flex gap-2 items-center'>
             <span>Based in San Diego, CA</span>
             <SunHorizonIcon className='size-6' aria-hidden='true' />
           </p>
@@ -110,7 +110,7 @@ const Landing = () => {
                 {work.stack.map((tech) => (
                   <li
                     key={tech}
-                    className='bg-btn-bg border-btn-border text-text-white py-1 px-2.5 rounded-md text-sm'
+                    className='bg-btn-bg border-btn-border text-bg-light py-1 px-2.5 rounded-md text-sm'
                   >
                     {tech}
                   </li>
@@ -183,7 +183,7 @@ const Landing = () => {
                 {p.stack.map((tech) => (
                   <li
                     key={tech}
-                    className='bg-btn-bg border-btn-border text-text-white py-1 px-2.5 rounded-md text-sm'
+                    className='bg-btn-bg border-btn-border text-bg-light py-1 px-2.5 rounded-md text-sm'
                   >
                     {tech}
                   </li>
