@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import LinkButton from '../ui/link-button/link-button';
 import { SOCIALS } from '../../lib/social-links';
-import { LINKS, NAV_SOCIALS } from '../../lib/nav-links';
+import { LINKS } from '../../lib/nav-links';
 import Logo from '../ui/icons/logo';
 import { ListIcon, XIcon, ArrowSquareOutIcon } from '@phosphor-icons/react';
 
@@ -15,20 +15,59 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   return (
     <>
       <header className='fixed z-40'>
-        <div className='bg-btn-bg/70 backdrop-blur-[100px] shadow-header rounded-xl fixed inset-x-4 top-4 z-50 py-3 px-5 flex items-center justify-between'>
+        <div className='min-h-14 bg-btn-bg/70 backdrop-blur-[100px] shadow-header rounded-xl fixed inset-x-4 xs:inset-x-10 lg:inset-x-20 max-w-[1365px] mx-auto top-4 lg:top-10 z-50 py-3 px-5 flex items-center justify-between xl:justify-normal'>
           <Link
             to='/'
             aria-label='Cristian Dominguez Homepage'
             className='flex items-center gap-2'
           >
             <Logo className='size-6 fill-bg-light' />
-            <span className='font-semibold text-bg-light'>
+            <span className='font-medium text-bg-light'>
               Cristian Dominguez
             </span>
           </Link>
 
+          {/* Desktop navigation */}
+          <div className='hidden xl:block bg-bg-light/30 w-[2px] h-[20px] ml-5 mr-1' />
+
+          <nav className='hidden xl:block'>
+            <ul className='flex'>
+              {LINKS.map((link, index) => {
+                return (
+                  <li key={index}>
+                    <LinkButton to={link.href} type='internal' variant='ghost'>
+                      <div className='bg-btn-bg border-[1px] border-btn-border rounded-sm p-1'>
+                        {link.icon}
+                      </div>
+                      <span>{link.text}</span>
+                    </LinkButton>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          <ul className='hidden xl:flex ml-auto'>
+            {SOCIALS.map((s, index) => {
+              return (
+                <li key={index}>
+                  <LinkButton to={s.href} type='external' variant='ghost'>
+                    <span>
+                      {s.text === 'cdom27@outlook.com' ? 'Email' : s.text}
+                    </span>
+                    <span className='sr-only'>(opens in a new tab)</span>
+                    <ArrowSquareOutIcon
+                      className='size-4 stroke-bg-dark'
+                      aria-hidden='true'
+                    />
+                  </LinkButton>
+                </li>
+              );
+            })}
+          </ul>
+
           <button
-            className='bg-btn-bg border-btn-border p-1 rounded-sm cursor-pointer'
+            className='bg-btn-bg border-[1px] border-btn-border p-1 rounded-sm cursor-pointer xl:hidden'
             onClick={() => setOpenMenu(!openMenu)}
             aria-label='Toggle menu'
             aria-expanded={openMenu}
@@ -41,11 +80,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
           </button>
         </div>
 
+        {/* Mobile menu and navigation */}
         {openMenu && (
-          <div className='fixed inset-0 h-screen w-full'>
+          <div className='fixed inset-0 h-screen w-full xl:hidden'>
             <div className='absolute inset-0 bg-[conic-gradient(from_162.29deg_at_50%_50%,#bba67e_0deg,#000000_83.08deg,#2b261d_257.88deg,#5e5440_299.42deg,#bba67e_360deg)]' />
             <div className='absolute inset-0 backdrop-blur-[100px] bg-bg-light/10' />
-            <div className='absolute inset-x-4 top-32 flex flex-col z-10 gap-12 text-bg-light'>
+            <div className='absolute inset-x-4 xs:inset-x-10 lg:inset-x-20 max-w-[1365px] top-32 flex flex-col z-10 gap-12 text-bg-light'>
               <section
                 className='flex flex-col gap-2'
                 aria-labelledby='nav-heading'
@@ -63,7 +103,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                             type='internal'
                             variant='default'
                           >
-                            <div className='bg-btn-bg border-btn-border rounded-sm p-1'>
+                            <div className='bg-btn-bg border-[1px] border-btn-border rounded-sm p-1'>
                               {link.icon}
                             </div>
                             <span>{link.text}</span>
@@ -83,7 +123,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                   Connect
                 </h2>
                 <ul className='flex flex-wrap gap-2'>
-                  {NAV_SOCIALS.map((s, index) => {
+                  {SOCIALS.map((s, index) => {
                     return (
                       <li key={index}>
                         <LinkButton

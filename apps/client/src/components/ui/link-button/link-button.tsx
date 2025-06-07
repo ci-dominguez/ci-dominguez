@@ -17,10 +17,11 @@ const LinkButton = ({
 }: LinkButtonProps) => {
   const variantStylesMap: Record<string, string> = {
     default: 'bg-btn-bg/70 backdrop-blur-[100px]',
-    ghost: 'bg-transparent hover:bg-btn-bg/70 hover:backdrop-blur-[100px]',
+    ghost:
+      'bg-transparent hover:bg-btn-bg/70 hover:backdrop-blur-[100px] text-bg-light',
   };
 
-  const classes = `flex items-center gap-2 py-2 px-4 rounded-lg hover:underline ${
+  const classes = `flex items-center gap-2 py-2 px-4 rounded-lg ${
     variantStylesMap[variant || 'default']
   } ${className}`;
 

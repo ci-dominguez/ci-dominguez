@@ -140,7 +140,7 @@ const Landing = () => {
                     {work.stack.map((tech) => (
                       <li
                         key={tech}
-                        className='bg-btn-bg border-btn-border text-bg-light py-1 px-2.5 rounded-md text-sm'
+                        className='bg-btn-bg border-[1px] border-btn-border text-bg-light py-1 px-2.5 rounded-sm text-sm'
                       >
                         {tech}
                       </li>
@@ -217,7 +217,7 @@ const Landing = () => {
                     {p.stack.map((tech) => (
                       <li
                         key={tech}
-                        className='bg-btn-bg border-btn-border text-bg-light py-1 sm:py-1.5 px-2.5 sm:px-3 rounded-md text-sm'
+                        className='bg-btn-bg border-btn-border text-bg-light py-1 sm:py-1.5 px-2.5 sm:px-3 rounded-sm text-sm'
                       >
                         {tech}
                       </li>

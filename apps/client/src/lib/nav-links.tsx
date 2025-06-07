@@ -1,4 +1,4 @@
-import { CodeIcon, UserIcon, FileIcon } from '@phosphor-icons/react';
+import { CodeIcon, UserIcon } from '@phosphor-icons/react';
 
 export const LINKS = [
   {
@@ -10,25 +10,5 @@ export const LINKS = [
     text: 'Me',
     href: '/about',
     icon: <UserIcon className='size-4 fill-bg-light' aria-hidden='true' />,
-  },
-  {
-    text: 'Resume',
-    href: '/assets/cristian-dominguez-resume.pdf',
-    icon: <FileIcon className='size-4 fill-bg-light' aria-hidden='true' />,
-  },
-];
-
-export const NAV_SOCIALS = [
-  {
-    text: 'GitHub',
-    href: 'https://github.com/cdom27',
-  },
-  {
-    text: 'LinkedIn',
-    href: 'https://linkedin.com/in/cdom27/',
-  },
-  {
-    text: 'Email',
-    href: 'mailto:cdom27@outlook.com',
   },
 ];
