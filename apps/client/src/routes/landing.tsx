@@ -72,17 +72,17 @@ const Landing = () => {
 
           <div>
             <h2 className='text-3xl sm:text-4xl font-medium motion-preset-slide-down motion-delay-100 motion-duration-1000'>
-              Hey there{' '}
+              Hey, I'm Cristian{' '}
               <span className='motion-preset-wobble motion-loop-twice motion-duration-[0.50s]/rotate motion-delay-1000 inline-block'>
                 👋
               </span>
             </h2>
             <p className='max-w-[590px] pt-6 motion-delay-500 motion-preset-slide-up motion-preset-fade motion-duration-1500'>
-              I&apos;m Cristian &mdash; a developer who builds with Java, React,
-              Node, SQL, and TypeScript. On the side, I mess around with Go and
-              Rust while hunting down the best matcha and milk tea spots in San
-              Diego. I&apos;m big on clean abstractions, strong typing, and
-              finding tech that just <i>feels right</i>.
+              A developer who builds with Java, React, Node, SQL, and
+              TypeScript. On the side, I mess around with Go and Rust while
+              hunting down the best matcha and milk tea spots in San Diego.
+              I&apos;m big on clean abstractions, strong typing, and finding
+              tech that just <i>feels right</i>.
             </p>
           </div>
 
