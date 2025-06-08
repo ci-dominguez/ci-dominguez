@@ -90,7 +90,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
         {/* Mobile menu and navigation */}
         {openMenu && (
           <div className='fixed inset-0 h-screen w-full xl:hidden'>
-            <div className='absolute inset-0 bg-[conic-gradient(from_162.29deg_at_50%_50%,#bba67e_0deg,#000000_83.08deg,#2b261d_257.88deg,#5e5440_299.42deg,#bba67e_360deg)]' />
+            <div className='absolute inset-0 nav-gradient' />
             <div className='absolute inset-0 backdrop-blur-[100px] bg-bg-light/10' />
             <div className='absolute inset-x-4 xs:inset-x-10 lg:inset-x-20 max-w-[1365px] top-32 flex flex-col z-10 gap-12 text-bg-light'>
               <section

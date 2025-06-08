@@ -27,3 +27,33 @@
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
 }
+
+.nav-gradient {
+  background: conic-gradient(
+    from var(--angle-1),
+    #1a1a1a 0deg,
+    #2d2d2d 60deg,
+    #8b7355 120deg,
+    #d4af37 180deg,
+    #1a1a1a 210deg,
+    #745e2b 240deg,
+    #f7e49c 300deg,
+    #1a1a1a 360deg
+  );
+  animation: nav-gradient-rotate 50s linear infinite;
+}
+
+@property --angle-1 {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes nav-gradient-rotate {
+  from {
+    --angle-1: 0deg;
+  }
+  to {
+    --angle-1: 360deg;
+  }
+}
