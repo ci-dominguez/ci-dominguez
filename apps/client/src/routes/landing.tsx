@@ -184,12 +184,12 @@ const Landing = () => {
                       alt={work.title}
                       className='w-full h-auto intersect-once intersect:motion-preset-blur-right motion-duration-1000'
                     />
-                    <figcaption className='text-xl sm:text-2xl font-medium mt-2 intersect-once intersect:motion-preset-fade motion-duration-1000 motion-delay-300'>
+                    <figcaption className='text-xl sm:text-2xl font-medium mt-2 intersect-once intersect:motion-preset-fade motion-duration-1000 motion-delay-[400ms]'>
                       {work.title}
                     </figcaption>
                   </figure>
 
-                  <p className='intersect-once intersect:motion-preset-fade motion-duration-2000 motion-delay-[400ms]'>
+                  <p className='intersect-once intersect:motion-preset-fade motion-duration-2000 motion-delay-500'>
                     {work.description}
                   </p>
 
@@ -197,7 +197,7 @@ const Landing = () => {
                     {work.stack.map((tech) => (
                       <li
                         key={tech}
-                        className='bg-btn-bg border-[1px] border-btn-border text-bg-light py-1 px-2.5 rounded-sm text-sm intersect-once intersect:motion-preset-fade motion-delay-500 motion-duration-1000'
+                        className='bg-btn-bg border-[1px] border-btn-border text-bg-light py-1 px-2.5 rounded-sm text-sm intersect-once intersect:motion-preset-fade motion-delay-[600ms] motion-duration-2000'
                       >
                         {tech}
                       </li>
@@ -210,7 +210,7 @@ const Landing = () => {
                         href={work.site_url}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-[600ms] motion-duration-1000'
+                        className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-700 motion-duration-2000'
                         aria-label={`Visit live site for ${work.title}`}
                       >
                         <span>Visit</span>
@@ -224,7 +224,7 @@ const Landing = () => {
                       href={work.repo_url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-700 motion-duration-1000'
+                      className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-[800ms] motion-duration-2000'
                       aria-label={`View source code for ${work.title}`}
                     >
                       <span>View Code</span>
@@ -259,7 +259,7 @@ const Landing = () => {
                       href={p.repo_url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='hover:underline flex items-center gap-2 text-xl sm:text-2xl intersect-once intersect:motion-preset-fade motion-duration-1000 motion-delay-300'
+                      className='hover:underline flex items-center gap-2 text-xl sm:text-2xl intersect-once intersect:motion-preset-fade motion-duration-1000 motion-delay-[400ms]'
                       aria-label={`View source code for ${p.title}`}
                     >
                       <span>{p.title}</span>
@@ -270,7 +270,7 @@ const Landing = () => {
                     </a>
                   </div>
 
-                  <p className='pl-6 intersect-once intersect:motion-preset-fade motion-duration-2000 motion-delay-[400ms]'>
+                  <p className='pl-6 intersect-once intersect:motion-preset-fade motion-duration-2000 motion-delay-500'>
                     {p.description}
                   </p>
 
@@ -278,7 +278,7 @@ const Landing = () => {
                     {p.stack.map((tech) => (
                       <li
                         key={tech}
-                        className='bg-btn-bg border-btn-border text-bg-light py-1 sm:py-1.5 px-2.5 sm:px-3 rounded-sm text-sm intersect-once intersect:motion-preset-fade motion-delay-500 motion-duration-1000'
+                        className='bg-btn-bg border-btn-border text-bg-light py-1 sm:py-1.5 px-2.5 sm:px-3 rounded-sm text-sm intersect-once intersect:motion-preset-fade motion-delay-[600ms] motion-duration-2000'
                       >
                         {tech}
                       </li>
