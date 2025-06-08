@@ -88,80 +88,138 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
         </div>
 
         {/* Mobile menu and navigation */}
-        {openMenu && (
-          <div className='fixed inset-0 h-screen w-full xl:hidden'>
-            <div className='absolute inset-0 nav-gradient' />
-            <div className='absolute inset-0 backdrop-blur-[100px] bg-bg-light/10' />
-            <div className='absolute inset-x-4 xs:inset-x-10 lg:inset-x-20 max-w-[1365px] top-32 flex flex-col z-10 gap-12 text-bg-light'>
-              <section
-                className='flex flex-col gap-2'
-                aria-labelledby='nav-heading'
-              >
-                <h2 id='nav-heading' className='text-lg text-bg-light'>
-                  Navigate
-                </h2>
-                <nav>
-                  <ul className='flex flex-wrap gap-2'>
-                    {LINKS.map((link, index) => {
-                      return (
-                        <li key={index}>
-                          <LinkButton
-                            to={link.href}
-                            type='internal'
-                            variant='default'
-                          >
-                            <div className='bg-btn-bg border-[1px] border-btn-border rounded-sm p-1'>
-                              {link.icon}
-                            </div>
-                            <span>{link.text}</span>
-                          </LinkButton>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
-              </section>
+        <div
+          className={`fixed inset-0 h-screen w-full xl:hidden transition-all duration-300 ${
+            openMenu ? 'pointer-events-auto' : 'pointer-events-none'
+          }`}
+        >
+          <div
+            className={`absolute inset-0 nav-gradient transition-opacity duration-500 ${
+              openMenu ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
 
-              <section
-                className='flex flex-col gap-2'
-                aria-labelledby='connect-heading'
-              >
-                <h2 id='connect-heading' className='text-lg text-bg-light'>
-                  Connect
-                </h2>
+          <div
+            className={`absolute inset-0 backdrop-blur-[100px] bg-bg-light/10 transition-opacity ${
+              openMenu ? 'opacity-100 duration-100' : 'opacity-0 duration-700'
+            }`}
+          />
+
+          <div
+            className={`absolute inset-x-4 xs:inset-x-10 lg:inset-x-20 max-w-[1365px] top-32 flex flex-col z-10 gap-12 text-bg-light transition-all duration-500 ${
+              openMenu
+                ? 'opacity-100 translate-y-0 motion-delay-300'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <section
+              className={`flex flex-col gap-2 transition-all duration-500 ${
+                openMenu
+                  ? 'opacity-100 translate-y-0 motion-delay-400'
+                  : 'opacity-0 translate-y-4'
+              }`}
+              aria-labelledby='nav-heading'
+            >
+              <h2 id='nav-heading' className='text-lg text-bg-light'>
+                Navigate
+              </h2>
+              <nav>
                 <ul className='flex flex-wrap gap-2'>
-                  {SOCIALS.map((s, index) => {
+                  {LINKS.map((link, index) => {
                     return (
-                      <li key={index}>
+                      <li
+                        key={index}
+                        className={`transition-all duration-500 ${
+                          openMenu
+                            ? 'opacity-100 translate-y-0'
+                            : 'opacity-0 translate-y-4'
+                        }`}
+                        style={{
+                          transitionDelay: openMenu
+                            ? `${500 + index * 100}ms`
+                            : '0ms',
+                        }}
+                      >
                         <LinkButton
-                          to={s.href}
-                          type='external'
+                          to={link.href}
+                          type='internal'
                           variant='default'
                         >
-                          <span>{s.text}</span>
-                          <span className='sr-only'>(opens in a new tab)</span>
-                          <ArrowSquareOutIcon
-                            className='size-4 stroke-bg-dark'
-                            aria-hidden='true'
-                          />
+                          <div className='bg-btn-bg border-[1px] border-btn-border rounded-sm p-1'>
+                            {link.icon}
+                          </div>
+                          <span>{link.text}</span>
                         </LinkButton>
                       </li>
                     );
                   })}
                 </ul>
-              </section>
+              </nav>
+            </section>
 
-              <p className='lg:hidden'>
-                Cursor options are disabled on mobile devices.
-              </p>
+            <section
+              className={`flex flex-col gap-2 transition-all duration-500 ${
+                openMenu
+                  ? 'opacity-100 translate-y-0 motion-delay-600'
+                  : 'opacity-0 translate-y-4'
+              }`}
+              aria-labelledby='connect-heading'
+            >
+              <h2 id='connect-heading' className='text-lg text-bg-light'>
+                Connect
+              </h2>
+              <ul className='flex flex-wrap gap-2'>
+                {SOCIALS.map((s, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className={`transition-all duration-500 ${
+                        openMenu
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-4'
+                      }`}
+                      style={{
+                        transitionDelay: openMenu
+                          ? `${700 + index * 100}ms`
+                          : '0ms',
+                      }}
+                    >
+                      <LinkButton to={s.href} type='external' variant='default'>
+                        <span>{s.text}</span>
+                        <span className='sr-only'>(opens in a new tab)</span>
+                        <ArrowSquareOutIcon
+                          className='size-4 stroke-bg-dark'
+                          aria-hidden='true'
+                        />
+                      </LinkButton>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
 
-              {/* TODO - Create cursor options for desktop */}
-              <div className='hidden lg:flex'>
-                <span>cursor options will go here</span>
-              </div>
+            <p
+              className={`lg:hidden transition-all duration-500 ${
+                openMenu
+                  ? 'opacity-100 translate-y-0 motion-delay-800'
+                  : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Cursor options are disabled on mobile devices.
+            </p>
+
+            {/* TODO - Create cursor options for desktop */}
+            <div
+              className={`hidden lg:flex transition-all duration-500 ${
+                openMenu
+                  ? 'opacity-100 translate-y-0 motion-delay-900'
+                  : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <span>cursor options will go here</span>
             </div>
           </div>
-        )}
+        </div>
       </header>
 
       <main className='min-h-screen scroll-smooth'>{children}</main>
