@@ -10,6 +10,13 @@ interface SiteLayoutProps {
   children: React.ReactNode;
 }
 
+const delayClasses = [
+  'motion-delay-[550ms]',
+  'motion-delay-[600ms]',
+  'motion-delay-[650ms]',
+  'motion-delay-[700ms]',
+];
+
 const SiteLayout = ({ children }: SiteLayoutProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
@@ -160,21 +167,31 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
       <main className='min-h-screen scroll-smooth'>{children}</main>
 
       <footer className='px-4 xs:px-10 lg:px-20 w-full max-w-[1365px] mx-auto pb-28 flex flex-col xl:flex-row xl:justify-between'>
-        <Link to='/' className='flex items-center gap-2 self-start'>
+        <Link
+          to='/'
+          className='flex items-center gap-2 self-start intersect-once intersect:motion-preset-slide-up motion-delay-500 motion-duration-1500'
+        >
           <Logo className='size-6 fill-btn-bg' />
           <span className='font-semibold'>Cristian Dominguez</span>
         </Link>
 
-        <p className='mt-2.5 xl:mt-0 self-start'>
+        <p className='mt-2.5 xl:mt-0 self-start intersect-once intersect:motion-preset-slide-up motion-delay-500 motion-duration-1500'>
           I enjoy building things on the web.
         </p>
 
         <address className='flex flex-col gap-2 mt-8 xl:mt-0 xl:flex-row xl:gap-4 not-italic self-start'>
-          <h4 className='font-semibold'>Connect With Me</h4>
+          <h4 className='font-semibold intersect-once intersect:motion-preset-slide-up motion-delay-500 motion-duration-1000'>
+            Connect With Me
+          </h4>
           <ul className='flex flex-col gap-2 xl:flex-row xl:gap-4 '>
             {SOCIALS.map((s, index) => {
               return (
-                <li key={index} className='self-start'>
+                <li
+                  key={index}
+                  className={`self-start intersect-once intersect:motion-preset-fade motion-duration-1000 ${
+                    delayClasses[index] || 'motion-delay-[900ms]'
+                  }`}
+                >
                   <a
                     href={s.href}
                     target='_blank'
