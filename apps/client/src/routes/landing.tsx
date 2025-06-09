@@ -4,7 +4,7 @@ import { EXP } from '../lib/experience';
 import { PERSONAL_WORK } from '../lib/personal-work';
 import { PROJECTS } from '../lib/projects';
 import { ArrowSquareOutIcon, SunHorizonIcon } from '@phosphor-icons/react';
-import Me from '../assets/me.png';
+import Me from '../assets/me.webp';
 
 const delayClasses = [
   'motion-delay-[600ms]',
