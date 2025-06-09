@@ -1,4 +1,4 @@
-import Placeholder from '../assets/images/placeholder.png';
+import Placeholder from '../assets/images/placeholder.webp';
 
 export const PERSONAL_WORK = [
   {
