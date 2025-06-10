@@ -16,9 +16,10 @@ const LinkButton = ({
   variant,
 }: LinkButtonProps) => {
   const variantStylesMap: Record<string, string> = {
-    default: 'bg-btn-bg/70 backdrop-blur-[100px]',
+    default:
+      'bg-btn-bg/70 backdrop-blur-[100px] active:bg-btn-bg transitional-all',
     ghost:
-      'bg-transparent hover:bg-btn-bg/70 hover:backdrop-blur-[100px] text-bg-light',
+      'bg-transparent hover:bg-btn-bg/70 hover:backdrop-blur-[100px] transition-all duration-300 delay-100 text-bg-light active:bg-btn-bg active:duration-0 active:delay-0',
   };
 
   const classes = `flex items-center gap-2 py-2 px-4 rounded-lg ${

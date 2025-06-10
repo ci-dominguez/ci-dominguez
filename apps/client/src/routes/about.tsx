@@ -58,11 +58,11 @@ const About = () => {
                 href='https://art.cidominguez.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='font-semibold inline-flex items-center gap-2 hover:underline'
+                className='font-semibold inline-flex items-center gap-2 hover:underline hover:text-link-active transition-all duration-300 group'
               >
                 <span>The Art API</span>
                 <ArrowSquareOutIcon
-                  className='size-4 stroke-bg-dark'
+                  className='size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200'
                   aria-hidden='true'
                 />
               </a>

@@ -26,9 +26,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
           <Link
             to='/'
             aria-label='Cristian Dominguez Homepage'
-            className='flex items-center gap-2'
+            className='flex items-center gap-2 group'
           >
-            <Logo className='size-6 fill-bg-light' />
+            <Logo className='size-6 fill-bg-light group-hover:motion-preset-seesaw motion-loop-once motin-duration-500 motion-delay-200' />
             <span className='font-medium text-bg-light'>
               Cristian Dominguez
             </span>
@@ -41,9 +41,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
             <ul className='flex'>
               {LINKS.map((link, index) => {
                 return (
-                  <li key={index}>
+                  <li key={index} className='group'>
                     <LinkButton to={link.href} type='internal' variant='ghost'>
-                      <div className='bg-btn-bg border-[1px] border-btn-border rounded-sm p-1'>
+                      <div className='bg-btn-bg border-[1px] border-btn-border rounded-sm p-1 group-hover:motion-preset-seesaw motion-loop-once'>
                         {link.icon}
                       </div>
                       <span>{link.text}</span>
@@ -57,14 +57,14 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
           <ul className='hidden xl:flex ml-auto'>
             {SOCIALS.map((s, index) => {
               return (
-                <li key={index}>
+                <li key={index} className='group'>
                   <LinkButton to={s.href} type='external' variant='ghost'>
                     <span>
                       {s.text === 'cdom27@outlook.com' ? 'Email' : s.text}
                     </span>
                     <span className='sr-only'>(opens in a new tab)</span>
                     <ArrowSquareOutIcon
-                      className='size-4 stroke-bg-dark'
+                      className='size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200'
                       aria-hidden='true'
                     />
                   </LinkButton>
@@ -227,10 +227,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
       <footer className='px-4 xs:px-10 lg:px-20 w-full max-w-[1365px] mx-auto pb-28 flex flex-col xl:flex-row xl:justify-between'>
         <Link
           to='/'
-          className='flex items-center gap-2 self-start intersect-once intersect:motion-preset-slide-up motion-delay-500 motion-duration-1500'
+          className='group flex items-center gap-2 self-start intersect-once intersect:motion-preset-slide-up motion-delay-500 motion-duration-1500'
         >
-          <Logo className='size-6 fill-btn-bg' />
-          <span className='font-semibold'>Cristian Dominguez</span>
+          <Logo className='size-6 fill-btn-bg group-hover:fill-link-active transition-all duration-100 group-hover:motion-preset-seesaw motion-loop-once motin-duration-500 motion-delay-200' />
+          <span className='font-semibold group-hover:text-link-active transition-all duration-300'>
+            Cristian Dominguez
+          </span>
         </Link>
 
         <p className='mt-2.5 xl:mt-0 self-start intersect-once intersect:motion-preset-slide-up motion-delay-500 motion-duration-1500'>
@@ -246,7 +248,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
               return (
                 <li
                   key={index}
-                  className={`self-start intersect-once intersect:motion-preset-fade motion-duration-1000 ${
+                  className={`group self-start intersect-once intersect:motion-preset-fade motion-duration-1000 ${
                     delayClasses[index] || 'motion-delay-[900ms]'
                   }`}
                 >
@@ -254,11 +256,11 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     href={s.href}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex items-center gap-2 hover:underline'
+                    className='flex items-center gap-2 hover:underline hover:text-link-active transition-all duration-300'
                   >
                     <span>{s.text}</span>
                     <ArrowSquareOutIcon
-                      className='size-4 stroke-bg-dark'
+                      className='size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200'
                       aria-hidden='true'
                     />
                   </a>

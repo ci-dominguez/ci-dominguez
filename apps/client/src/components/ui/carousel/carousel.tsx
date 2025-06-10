@@ -164,9 +164,9 @@ export default function ImageCarousel({
           setHoveredIndex(null);
         }}
       >
-        <div className='h-[1.5px] bg-amber-600/30 w-[100px] mx-auto'>
+        <div className='h-[1.5px] bg-link-active/30 w-[100px] mx-auto'>
           <div
-            className='h-full bg-amber-600 transition-all duration-100 ease-linear'
+            className='h-full bg-link-active transition-all duration-100 ease-linear'
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -183,7 +183,7 @@ export default function ImageCarousel({
                 className={`relative overflow-hidden cursor-pointer transition-all duration-200 ${
                   (hoveredIndex !== null ? hoveredIndex : currentIndex) ===
                   index
-                    ? 'ring-2 ring-amber-600 transition-all duration-500 ease-in-out'
+                    ? 'ring-2 ring-link-active transition-all duration-500 ease-in-out'
                     : 'hover:scale-102'
                 }`}
                 onClick={() => goToImage(index)}
@@ -210,7 +210,7 @@ export default function ImageCarousel({
                     className={`relative overflow-hidden cursor-pointer transition-all duration-200 ${
                       (hoveredIndex !== null ? hoveredIndex : currentIndex) ===
                       actualIndex
-                        ? 'ring-2 ring-amber-600 transition-all duration-500 ease-in-out'
+                        ? 'ring-2 ring-link-active transition-all duration-500 ease-in-out'
                         : 'hover:scale-102'
                     }`}
                     onClick={() => goToImage(actualIndex)}
@@ -242,7 +242,7 @@ export default function ImageCarousel({
     >
       <div className='absolute top-0 left-0 right-0 h-[1.5px] z-20'>
         <div
-          className='h-full bg-amber-600 transition-all duration-100 ease-linear'
+          className='h-full bg-link-active transition-all duration-100 ease-linear'
           style={{ width: `${progress}%` }}
         />
       </div>

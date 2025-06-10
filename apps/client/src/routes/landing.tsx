@@ -210,12 +210,12 @@ const Landing = () => {
                         href={work.site_url}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-700 motion-duration-2000'
+                        className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-700 motion-duration-2000 hover:text-link-active transition-all duration-300 group'
                         aria-label={`Visit live site for ${work.title}`}
                       >
                         <span>Visit</span>
                         <ArrowSquareOutIcon
-                          className='size-4 stroke-bg-dark'
+                          className='size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200'
                           aria-hidden='true'
                         />
                       </a>
@@ -224,12 +224,12 @@ const Landing = () => {
                       href={work.repo_url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-[800ms] motion-duration-2000'
+                      className='hover:underline flex items-center gap-2 intersect-once intersect:motion-preset-fade motion-delay-[800ms] motion-duration-2000 hover:text-link-active transition-all duration-300 group'
                       aria-label={`View source code for ${work.title}`}
                     >
                       <span>View Code</span>
                       <ArrowSquareOutIcon
-                        className='size-4 stroke-bg-dark'
+                        className='size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200'
                         aria-hidden='true'
                       />
                     </a>
@@ -259,12 +259,12 @@ const Landing = () => {
                       href={p.repo_url}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='hover:underline flex items-center gap-2 text-xl sm:text-2xl intersect-once intersect:motion-preset-fade motion-duration-1000 motion-delay-[400ms]'
+                      className='hover:underline flex items-center gap-2 text-xl sm:text-2xl intersect-once intersect:motion-preset-fade motion-duration-1000 motion-delay-[400ms] hover:text-link-active transition-all duration-300 group'
                       aria-label={`View source code for ${p.title}`}
                     >
                       <span>{p.title}</span>
                       <ArrowSquareOutIcon
-                        className='min-w-4 size-4 stroke-bg-dark'
+                        className='min-w-4 size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200'
                         aria-hidden='true'
                       />
                     </a>
