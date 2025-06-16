@@ -1,10 +1,13 @@
+import { useEffect, useState } from 'react';
+import useArtwork from '../hooks/useArtwork';
+import useArtist from '../hooks/useArtist';
 import SiteLayout from '../components/layouts/site-layout';
-import { AWOTD } from '../lib/awotd';
 import { EXP } from '../lib/experience';
 import { PERSONAL_WORK } from '../lib/personal-work';
 import { PROJECTS } from '../lib/projects';
 import { ArrowSquareOutIcon, SunHorizonIcon } from '@phosphor-icons/react';
 import Me from '../assets/images/me.webp';
+import type { ArtworkWithArtist } from '../lib/types/art-api/artwork';
 
 const delayClasses = [
   'motion-delay-[600ms]',
@@ -16,6 +19,32 @@ const delayClasses = [
 ];
 
 const Landing = () => {
+  const { fetchRandomArtwork, artwork, isLoading } = useArtwork();
+  const { fetchArtistById, artist } = useArtist();
+
+  const [fetchedArtwork, setFetchedArtwork] =
+    useState<ArtworkWithArtist | null>(null);
+
+  useEffect(() => {
+    const buildArtworkMetadata = async () => {
+      try {
+        const fetchedArtworkData = await fetchRandomArtwork();
+        const artworkData = fetchedArtworkData || artwork;
+        if (artworkData && artworkData.artistId) {
+          const fetchedArtistData = await fetchArtistById(artworkData.artistId);
+          const artistData = fetchedArtistData || artist;
+          if (artistData && artistData.name) {
+            setFetchedArtwork({ ...artworkData, artist: artistData.name });
+          }
+        }
+      } catch (error) {
+        console.error('Error building artwork metadata:', error);
+      }
+    };
+
+    buildArtworkMetadata();
+  }, []);
+
   return (
     <SiteLayout>
       <section className='bg-bg-dark text-bg-light py-28 lg:py-50'>
@@ -86,22 +115,40 @@ const Landing = () => {
             </p>
           </div>
 
-          {/* TODO - Use art api instead of local metadata */}
-          <article className=' md:max-w-[500px] mx-auto lg:mx-0 lg:self-end lg:max-w-[400px]'>
-            <h3 className='pb-2 opacity-70 sm:text-lg sm:text-center motion-preset-slide-up motion-delay-500 motion-duration-1500">'>
-              Artwork of The Day
+          <article className='md:max-w-[500px] mx-auto lg:mx-0 lg:self-end lg:max-w-[400px]'>
+            <h3 className='pb-2 sm:text-lg sm:text-center motion-preset-slide-up motion-delay-500 motion-duration-1500'>
+              <span className='opacity-70'>
+                Random artwork, courtesy of the{' '}
+              </span>
+              <a
+                href='https://art.cidominguez.com'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='font-semibold inline-flex items-center gap-2 opacity-70 hover:opacity-100 hover:underline hover:text-[#FFFF00] transition-all duration-300'
+              >
+                <span>Art API</span>
+                <ArrowSquareOutIcon className='size-4 stroke-bg-dark group-hover:motion-preset-seesaw motion-loop-once motion-duration-500 motion-delay-200' />
+              </a>
             </h3>
 
-            <figure className='flex flex-col'>
-              <img
-                src={AWOTD.image}
-                alt={`Artwork titled ${AWOTD.title} by ${AWOTD.artist}`}
-                className='pb-2 motion-preset-slide-up motion-delay-700 motion-duration-1500">'
-              />
-              <figcaption className='sm:mx-auto motion-preset-slide-up motion-delay-1000 motion-duration-1500">'>
-                {AWOTD.title}, {AWOTD.artist} ({AWOTD.referred_year})
-              </figcaption>
-            </figure>
+            {isLoading || !fetchedArtwork ? (
+              <div className='animate-pulse space-y-2'>
+                <div className='w-full h-[300px] bg-neutral-700 rounded' />
+                <div className='w-2/3 h-4 bg-neutral-600 rounded' />
+              </div>
+            ) : (
+              <figure className='flex flex-col'>
+                <img
+                  src={fetchedArtwork.imageUrl}
+                  alt={`Artwork titled ${fetchedArtwork.title} by ${fetchedArtwork.artist}`}
+                  className='pb-2 motion-preset-slide-up motion-delay-700 motion-duration-1000'
+                />
+                <figcaption className='sm:mx-auto motion-preset-slide-up motion-delay-1000 motion-duration-1000'>
+                  {fetchedArtwork.title}, {fetchedArtwork.artist} (
+                  {fetchedArtwork.inferredYear})
+                </figcaption>
+              </figure>
+            )}
           </article>
         </div>
       </section>
