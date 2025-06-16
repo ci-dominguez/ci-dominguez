@@ -57,7 +57,7 @@ const Landing = () => {
                 className='w-22 xs:w-32 sm:w-38 md:w-48 lg:w-30 motion-preset-blur-right motion-duration-1000'
               />
 
-              <h1 className='font-medium xs:hidden'>
+              <h1 className='text-base font-medium xs:hidden'>
                 <span className='block text-base motion-delay-200 motion-preset-fade motion-duration-1000'>
                   Full Stack
                 </span>
@@ -67,7 +67,7 @@ const Landing = () => {
               </h1>
 
               <div className='hidden xs:flex flex-col'>
-                <h1 className='font-medium'>
+                <h1 className='text-base font-medium'>
                   <span className='block text-base sm:text-lg motion-delay-200 motion-preset-fade motion-duration-2000'>
                     Full Stack
                   </span>
@@ -133,8 +133,8 @@ const Landing = () => {
 
             {isLoading || !fetchedArtwork ? (
               <div className='animate-pulse space-y-2'>
-                <div className='w-full h-[300px] bg-neutral-700 rounded' />
-                <div className='w-2/3 h-4 bg-neutral-600 rounded' />
+                <div className='w-full h-[300px] bg-neutral-700 rounded motion-preset-slide-up motion-delay-700 motion-duration-1000' />
+                <div className='w-2/3 h-4 bg-neutral-600 rounded motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
               </div>
             ) : (
               <figure className='flex flex-col'>
