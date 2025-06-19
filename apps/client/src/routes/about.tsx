@@ -1,4 +1,5 @@
 import { ArrowSquareOutIcon } from '@phosphor-icons/react';
+import Meta from '../components/seo/meta';
 import SiteLayout from '../components/layouts/site-layout';
 import Carousel from '../components/ui/carousel/carousel';
 import FAQCard, {
@@ -11,6 +12,11 @@ import { IMAGES } from '../lib/carousel-images';
 const About = () => {
   return (
     <SiteLayout>
+      <Meta
+        title='Cristian Dominguez, Personal Life'
+        description='Lean more about what drives Cristian as a developer, his journey into programming, and his educational background as a Software Developer based in San Diego, CA.'
+        canonicalUrl='https://cidominguez.com/about'
+      />
       <section className='py-28 lg:py-50 px-4 xs:px-10 lg:px-20 w-full max-w-[1365px] mx-auto flex flex-col gap-14'>
         <h1 className='font-medium'>
           <span className='block text-base sm:text-lg motion-delay-200 motion-preset-fade motion-duration-2000'>

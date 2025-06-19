@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import useArtwork from '../hooks/use-artwork';
+import Meta from '../components/seo/meta';
 import SiteLayout from '../components/layouts/site-layout';
 import { EXP } from '../lib/experience';
 import { PERSONAL_WORK } from '../lib/personal-work';
@@ -25,6 +26,12 @@ const Landing = () => {
 
   return (
     <SiteLayout>
+      <Meta
+        title='Cristian Dominguez, Software Developer'
+        description={`Portfolio of Cristian Dominguez, a full stack Software Developer based in San Diego, CA. View his professional experience, personal work, and side projects.`}
+        canonicalUrl='https://cidominguez.com/'
+      />
+
       <section className='bg-bg-dark text-bg-light py-28 lg:py-50'>
         <div className='px-4 xs:px-10 lg:px-20 w-full max-w-[1365px] mx-auto flex flex-col gap-14'>
           <div className='flex flex-col items-center gap-4'>
