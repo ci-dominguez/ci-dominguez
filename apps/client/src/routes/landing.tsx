@@ -111,17 +111,17 @@ const Landing = () => {
 
             {isLoading || !artwork ? (
               <div className='animate-pulse space-y-2'>
-                <div className='w-full h-[300px] bg-neutral-700 rounded motion-preset-slide-up motion-delay-700 motion-duration-1000' />
-                <div className='w-2/3 h-4 bg-neutral-600 rounded motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
+                <div className='w-full h-[400px] bg-neutral-700 rounded motion-preset-slide-up motion-delay-700 motion-duration-1000' />
+                <div className='w-5/6 mx-auto h-4 bg-neutral-600 rounded motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
               </div>
             ) : (
               <figure className='flex flex-col'>
                 <img
                   src={artwork.thumbnailImageUrl}
                   alt={`Artwork titled ${artwork.title} by ${artwork.artist}`}
-                  className='pb-2 motion-preset-slide-up motion-duration-1000'
+                  className='w-full max-h-[380px] object-center pb-2 motion-preset-fade motion-duration-1000'
                 />
-                <figcaption className='sm:mx-auto motion-preset-slide-up motion-delay-1000 motion-duration-1000'>
+                <figcaption className='sm:mx-auto motion-preset-fade motion-delay-300 motion-duration-1000'>
                   {artwork.title}, {artwork.artist} ({artwork.inferredYear})
                 </figcaption>
               </figure>
