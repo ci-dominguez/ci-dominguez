@@ -3,8 +3,8 @@ export type Artwork = {
   title: string;
   medium: string;
   inferredYear: string;
-  imageUrl: string;
-  thumbnailUrl: string;
+  fullImageUrl: string;
+  thumbnailImageUrl: string;
   artistId: number;
 };
 

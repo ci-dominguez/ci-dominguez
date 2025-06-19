@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
-import useArtwork from '../hooks/useArtwork';
-import useArtist from '../hooks/useArtist';
+import { useEffect } from 'react';
+import useArtwork from '../hooks/use-artwork';
 import SiteLayout from '../components/layouts/site-layout';
 import { EXP } from '../lib/experience';
 import { PERSONAL_WORK } from '../lib/personal-work';
 import { PROJECTS } from '../lib/projects';
 import { ArrowSquareOutIcon, SunHorizonIcon } from '@phosphor-icons/react';
 import Me from '../assets/images/me.webp';
-import type { ArtworkWithArtist } from '../lib/types/art-api/artwork';
 
 const delayClasses = [
   'motion-delay-[600ms]',
@@ -19,30 +17,10 @@ const delayClasses = [
 ];
 
 const Landing = () => {
-  const { fetchRandomArtwork, artwork, isLoading } = useArtwork();
-  const { fetchArtistById, artist } = useArtist();
-
-  const [fetchedArtwork, setFetchedArtwork] =
-    useState<ArtworkWithArtist | null>(null);
+  const { fetchAndEnrichArtwork, artwork, isLoading } = useArtwork();
 
   useEffect(() => {
-    const buildArtworkMetadata = async () => {
-      try {
-        const fetchedArtworkData = await fetchRandomArtwork();
-        const artworkData = fetchedArtworkData || artwork;
-        if (artworkData && artworkData.artistId) {
-          const fetchedArtistData = await fetchArtistById(artworkData.artistId);
-          const artistData = fetchedArtistData || artist;
-          if (artistData && artistData.name) {
-            setFetchedArtwork({ ...artworkData, artist: artistData.name });
-          }
-        }
-      } catch (error) {
-        console.error('Error building artwork metadata:', error);
-      }
-    };
-
-    buildArtworkMetadata();
+    fetchAndEnrichArtwork();
   }, []);
 
   return (
@@ -131,7 +109,7 @@ const Landing = () => {
               </a>
             </h3>
 
-            {isLoading || !fetchedArtwork ? (
+            {isLoading || !artwork ? (
               <div className='animate-pulse space-y-2'>
                 <div className='w-full h-[300px] bg-neutral-700 rounded motion-preset-slide-up motion-delay-700 motion-duration-1000' />
                 <div className='w-2/3 h-4 bg-neutral-600 rounded motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
@@ -139,13 +117,12 @@ const Landing = () => {
             ) : (
               <figure className='flex flex-col'>
                 <img
-                  src={fetchedArtwork.imageUrl}
-                  alt={`Artwork titled ${fetchedArtwork.title} by ${fetchedArtwork.artist}`}
-                  className='pb-2 motion-preset-slide-up motion-delay-700 motion-duration-1000'
+                  src={artwork.thumbnailImageUrl}
+                  alt={`Artwork titled ${artwork.title} by ${artwork.artist}`}
+                  className='pb-2 motion-preset-slide-up motion-duration-1000'
                 />
                 <figcaption className='sm:mx-auto motion-preset-slide-up motion-delay-1000 motion-duration-1000'>
-                  {fetchedArtwork.title}, {fetchedArtwork.artist} (
-                  {fetchedArtwork.inferredYear})
+                  {artwork.title}, {artwork.artist} ({artwork.inferredYear})
                 </figcaption>
               </figure>
             )}
@@ -153,7 +130,6 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* TODO - Use db instead of local metadata */}
       <section
         className='flex flex-col px-4 xs:px-10 lg:px-20 py-28 lg:py-50 gap-14 lg:gap-30 w-full max-w-[1365px] mx-auto'
         aria-label='programming-heading'
