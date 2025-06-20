@@ -1,9 +1,11 @@
-import Placeholder from '../assets/images/placeholder.webp';
+import ArtAPI from '../assets/images/art_api.webp';
+import Oxen from '../assets/images/oxen.webp';
+import Vale from '../assets/images/vale.png';
 
 export const PERSONAL_WORK = [
   {
     title: 'Art REST API with Key-Based Auth',
-    image: Placeholder,
+    image: ArtAPI,
     description:
       'A RESTful API for managing art collections, featuring key-based authentication and CRUD operations.',
     stack: [
@@ -22,7 +24,7 @@ export const PERSONAL_WORK = [
   },
   {
     title: 'Construction Business Site with Admin CRM',
-    image: Placeholder,
+    image: Oxen,
     description:
       'A web application for managing construction projects, featuring an admin CRM for client management and project tracking.',
     stack: [
@@ -43,7 +45,7 @@ export const PERSONAL_WORK = [
   },
   {
     title: 'Subscription-Based Habit Tracker',
-    image: Placeholder,
+    image: Vale,
     description:
       'Something about the business value and the tech stack used to build it.',
     stack: [
