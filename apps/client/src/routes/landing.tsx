@@ -118,8 +118,8 @@ const Landing = () => {
 
             {isLoading || !artwork ? (
               <div className='animate-pulse space-y-2'>
-                <div className='w-full h-[400px] bg-neutral-700 rounded motion-preset-slide-up motion-delay-700 motion-duration-1000' />
-                <div className='w-5/6 mx-auto h-4 bg-neutral-600 rounded motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
+                <div className='w-full h-[400px] bg-neutral-700 motion-preset-slide-up motion-delay-700 motion-duration-1000' />
+                <div className='w-5/6 mx-auto h-4 bg-neutral-600 motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
               </div>
             ) : (
               <figure className='flex flex-col'>
