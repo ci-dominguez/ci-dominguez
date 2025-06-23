@@ -1,15 +1,8 @@
 export const PROJECTS = [
   {
-    title: 'Encrypted Password Manager',
-    description:
-      'It features a simple GUI interface and uses a master password to encrypt and decrypt stored credentials. Master password hashing is handled with PBKDF2, while AES encryption secures service credentials.',
-    stack: ['Java', 'Swing', 'JCE', 'PBKDF2', 'AES'],
-    repo_url: 'https://github.com/cdom27',
-  },
-  {
     title: 'Expense Tracking Discord Bot',
     description:
-      'A Discord bot that helps users track their expenses and manage their budgets.',
+      'A Discord bot that lets users manage and track personal expenses via chat commands in their personal guilds.',
     stack: [
       'TypeScript',
       'Bun.js',
@@ -21,38 +14,18 @@ export const PROJECTS = [
     repo_url: 'https://github.com/cdom27',
   },
   {
-    title: 'Bluesky Music Review Bot',
+    title: 'Music Review Bot On BlueSky',
     description:
-      'A bot that posts music reviews on Bluesky. Uses Pitchfork RSS feeds and the Spoify Web API to fetch and post reviews.',
-    stack: ['TypeScript', 'Node.js', 'PostgreSQL', 'Drizzle', 'Fly.io'],
-    repo_url: 'https://github.com/cdom27',
-  },
-  {
-    title: 'Project 4',
-    description:
-      'It features a simple GUI interface and uses a master password to encrypt and decrypt stored credentials. Master password hashing is handled with PBKDF2, while AES encryption secures service credentials.',
-    stack: ['Java', 'Swing', 'JCE', 'PBKDF2', 'AES'],
-    repo_url: 'https://github.com/cdom27',
-  },
-  {
-    title: 'Project 5',
-    description:
-      'A Discord bot that helps users track their expenses and manage their budgets.',
+      'Automates music review posts on BlueSky by fetching RSS feeds from Pitchfork then aggregating metadata, storing it in a database, and scheduling daily posts.',
     stack: [
+      'Node.js',
       'TypeScript',
-      'Bun.js',
-      'Prisma',
-      'Discord.js',
       'PostgreSQL',
+      'Drizzle',
+      'AT Proto',
+      'Spotify Web API',
       'Fly.io',
     ],
-    repo_url: 'https://github.com/cdom27',
-  },
-  {
-    title: 'Project 6',
-    description:
-      'A bot that posts music reviews on Bluesky. Uses Pitchfork RSS feeds and the Spoify Web API to fetch and post reviews.',
-    stack: ['TypeScript', 'Node.js', 'PostgreSQL', 'Drizzle', 'Fly.io'],
-    repo_url: 'https://github.com/cdom27',
+    repo_url: undefined,
   },
 ];
