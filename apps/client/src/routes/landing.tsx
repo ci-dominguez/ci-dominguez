@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useArtwork from '../hooks/use-artwork';
 import Meta from '../components/seo/meta';
 import SiteLayout from '../components/layouts/site-layout';
@@ -7,6 +7,12 @@ import { PERSONAL_WORK } from '../lib/personal-work';
 import { PROJECTS } from '../lib/projects';
 import { ArrowSquareOutIcon, SunHorizonIcon } from '@phosphor-icons/react';
 import Me from '../assets/images/me.webp';
+import Lightbox from 'yet-another-react-lightbox';
+import { Captions } from 'yet-another-react-lightbox/plugins';
+import 'yet-another-react-lightbox/styles.css';
+import 'yet-another-react-lightbox/plugins/counter.css';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import 'yet-another-react-lightbox/plugins/captions.css';
 
 const delayClasses = [
   'motion-delay-[600ms]',
@@ -18,11 +24,32 @@ const delayClasses = [
 ];
 
 const Landing = () => {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const { fetchAndEnrichArtwork, artwork, isLoading } = useArtwork();
+  const [slides, setSlides] = useState([
+    {
+      src: '',
+      title: '',
+      description: '',
+    },
+  ]);
 
   useEffect(() => {
     fetchAndEnrichArtwork();
   }, []);
+
+  // update slide when artwork is defined
+  useEffect(() => {
+    if (artwork) {
+      setSlides([
+        {
+          src: artwork.fullImageUrl,
+          title: artwork.title,
+          description: `Made by ${artwork.artist} in ${artwork.inferredYear}. Medium: ${artwork.medium}.`,
+        },
+      ]);
+    }
+  }, [artwork]);
 
   return (
     <SiteLayout>
@@ -124,11 +151,16 @@ const Landing = () => {
               </div>
             ) : (
               <figure className='flex flex-col space-y-2 max-w-[370px]'>
-                <img
-                  src={artwork.thumbnailImageUrl}
-                  alt={`Artwork titled ${artwork.title} by ${artwork.artist}`}
-                  className='w-full max-h-[370px] aspect-square object-cover motion-preset-fade motion-duration-1000'
-                />
+                <button
+                  className='group hover:cursor-pointer'
+                  onClick={() => setIsLightboxOpen(true)}
+                >
+                  <img
+                    src={artwork.thumbnailImageUrl}
+                    alt={`Artwork titled ${artwork.title} by ${artwork.artist}`}
+                    className='w-full max-h-[370px] aspect-square object-cover motion-preset-fade motion-duration-1000 group-hover:scale-105 group-hover:transition-all group-hover:duration-150'
+                  />
+                </button>
                 <figcaption className='sm:mx-auto motion-preset-fade motion-delay-300 motion-duration-1000 text-center'>
                   {artwork.title}, {artwork.artist} ({artwork.inferredYear})
                 </figcaption>
@@ -137,6 +169,34 @@ const Landing = () => {
           </article>
         </div>
       </section>
+
+      <Lightbox
+        open={isLightboxOpen}
+        close={() => {
+          setIsLightboxOpen(false);
+        }}
+        slides={slides}
+        controller={{
+          closeOnPullUp: true,
+          closeOnPullDown: true,
+          closeOnBackdropClick: true,
+          disableSwipeNavigation: true,
+        }}
+        styles={{
+          captionsTitle: {
+            textAlign: 'center',
+            fontWeight: 'normal',
+            fontFamily: 'var(--font-family-sans)',
+          },
+          captionsDescription: {
+            textAlign: 'center',
+            fontWeight: 'normal',
+            fontFamily: 'var(--font-family-sans)',
+          },
+        }}
+        plugins={[Captions]}
+        captions={{ showToggle: true }}
+      />
 
       <section
         className='flex flex-col px-4 xs:px-10 lg:px-20 py-28 lg:py-50 gap-14 lg:gap-30 w-full max-w-[1365px] mx-auto'
