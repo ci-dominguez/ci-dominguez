@@ -15,12 +15,12 @@ const useArtwork = () => {
     let enrichedArtwork: ArtworkWithArtist | null = null;
     try {
       const artworkData = await fetchWithApiKey<Artwork>('/artworks/random');
-      console.log('Fetched artwork:', artworkData);
+      //console.log('Fetched artwork:', artworkData);
 
       const artistData = await fetchWithApiKey<Artist>(
         `/artists/${artworkData.artistId}`
       );
-      console.log('Fetched artist:', artistData);
+      //console.log('Fetched artist:', artistData);
 
       // enrich artwork with artist data
       enrichedArtwork = {
