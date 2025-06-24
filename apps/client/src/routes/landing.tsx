@@ -100,7 +100,7 @@ const Landing = () => {
             </p>
           </div>
 
-          <article className='md:max-w-[500px] mx-auto lg:mx-0 lg:self-end lg:max-w-[400px]'>
+          <article className='md:max-w-[500px] mx-auto lg:mx-0 lg:self-end lg:max-w-[370px]'>
             <h3 className='pb-2 sm:text-lg sm:text-center motion-preset-slide-up motion-delay-500 motion-duration-1500'>
               <span className='opacity-70'>
                 Random artwork, courtesy of the{' '}
@@ -117,18 +117,19 @@ const Landing = () => {
             </h3>
 
             {isLoading || !artwork ? (
-              <div className='animate-pulse space-y-2'>
-                <div className='w-full h-[400px] bg-neutral-700 motion-preset-slide-up motion-delay-700 motion-duration-1000' />
+              <div className='animate-pulse space-y-2 max-w-[370px] h-[370px'>
+                <div className='w-full lg:w-[370px] aspect-square bg-neutral-700 motion-preset-slide-up motion-delay-700 motion-duration-1000' />
+                <div className='w-full lg:w-full mx-auto h-4 bg-neutral-600 motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
                 <div className='w-5/6 mx-auto h-4 bg-neutral-600 motion-preset-slide-up motion-delay-1000 motion-duration-1000' />
               </div>
             ) : (
-              <figure className='flex flex-col'>
+              <figure className='flex flex-col space-y-2 max-w-[370px]'>
                 <img
                   src={artwork.thumbnailImageUrl}
                   alt={`Artwork titled ${artwork.title} by ${artwork.artist}`}
-                  className='w-full max-h-[380px] object-center pb-2 motion-preset-fade motion-duration-1000'
+                  className='w-full max-h-[370px] aspect-square object-cover motion-preset-fade motion-duration-1000'
                 />
-                <figcaption className='sm:mx-auto motion-preset-fade motion-delay-300 motion-duration-1000'>
+                <figcaption className='sm:mx-auto motion-preset-fade motion-delay-300 motion-duration-1000 text-center'>
                   {artwork.title}, {artwork.artist} ({artwork.inferredYear})
                 </figcaption>
               </figure>
