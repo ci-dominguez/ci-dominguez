@@ -12,7 +12,7 @@ export const SOCIALS = [
     text: 'GitHub',
   },
   {
-    href: '/assets/cristian-dominguez-resume.pdf',
+    href: '/cristian-dominguez-resume.pdf',
     text: 'Resume',
   },
 ];
