@@ -26,7 +26,7 @@ export const PERSONAL_WORK = [
     title: 'Construction Business Site with Admin CRM',
     image: Oxen,
     description:
-      'A dual-purpose site for a construction company to showcase services and manage customer inquiries. Includes a lightweight CRM to track customer communication assign appointments.',
+      'A dual-purpose site for a construction company to showcase services and manage customer inquiries. Includes a lightweight CRM to track customer communication and assign appointments.',
     stack: [
       'React',
       'TypeScript',
